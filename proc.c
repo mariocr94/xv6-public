@@ -531,4 +531,10 @@ procdump(void)
     }
     cprintf("\n");
   }
+
+  
+}
+
+void printHello(void){
+    cprintf("hola desde la consola\n");
 }
