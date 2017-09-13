@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
  uint slp = 65535;
 
  n = atoi(argv[1]);
-priority = atoi(argv[2]);
-set_priority(priority);
+//priority = atoi(argv[2]);
+//set_priority(priority);
  for (c = 0; c < n; c++){
 	 if (c <= 1)
 	 	next = c;

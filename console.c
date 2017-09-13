@@ -188,10 +188,11 @@ struct {
 
 #define C(x)  ((x)-'@')  // Control-x
 extern void printHello (void);
+extern void killProc (void);
 void
 consoleintr(int (*getc)(void))
 {
-  int c, doprocdump = 0, doprintHello = 0;
+  int c, doprocdump = 0, doprintHello = 0, dokillProc = 0;
 
   acquire(&cons.lock);
   while((c = getc()) >= 0){
@@ -202,7 +203,8 @@ consoleintr(int (*getc)(void))
       break;
 
     case C('C'):
-      doprintHello = 1;
+      //doprintHello = 1;
+      dokillProc = 1;
       break;
 
     case C('U'):  // Kill line.
@@ -237,6 +239,9 @@ consoleintr(int (*getc)(void))
   }
   if(doprintHello){
     printHello();
+  }
+  if(dokillProc){
+    killProc();
   }
 }
 
