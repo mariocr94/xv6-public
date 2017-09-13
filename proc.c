@@ -539,7 +539,6 @@ void printHello(void){
     cprintf("hola desde la consola\n");
 }
 
-struct proc * pToKill;
 int killProc(void){
   
   if(myproc()!=0){

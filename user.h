@@ -24,6 +24,7 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int shutdown(void);
+int reboot(void);
 int set_priority(int);
 
 // ulib.c
