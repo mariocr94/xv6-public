@@ -105,6 +105,9 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_shutdown(void);
 extern int sys_reboot(void);
+extern int sys_shmem(void);
+extern int sys_shmat(void);
+extern int sys_shdemat(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -130,6 +133,9 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_shutdown] sys_shutdown,
 [SYS_reboot] sys_reboot,
+[SYS_shmem] sys_shmem,
+[SYS_shmat] sys_shmat,
+[SYS_shdemat] sys_shdemat,
 };
 
 void

@@ -31,4 +31,7 @@ SYSCALL(sleep)
 SYSCALL(uptime)
 SYSCALL(shutdown)
 SYSCALL(reboot)
+SYSCALL(shmem)
+SYSCALL(shmat)
+SYSCALL(shdemat)
 
