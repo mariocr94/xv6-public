@@ -30,6 +30,7 @@ int shmem(int);
 char * shmat(int);
 int shdemat(int);
 int chmod(char *, char *);
+int logout(void);
 
 // ulib.c
 int stat(char*, struct stat*);

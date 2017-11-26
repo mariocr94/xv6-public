@@ -26,4 +26,5 @@
 #define SYS_shmat 26
 #define SYS_shdemat 27
 #define SYS_chmod   28
+#define SYS_logout  29
 
