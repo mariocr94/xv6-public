@@ -25,4 +25,5 @@
 #define SYS_shmem 25
 #define SYS_shmat 26
 #define SYS_shdemat 27
+#define SYS_chmod   28
 

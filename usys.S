@@ -34,4 +34,4 @@ SYSCALL(reboot)
 SYSCALL(shmem)
 SYSCALL(shmat)
 SYSCALL(shdemat)
-
+SYSCALL(chmod)

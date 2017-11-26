@@ -29,6 +29,7 @@ int set_priority(int);
 int shmem(int);
 char * shmat(int);
 int shdemat(int);
+int chmod(char *, char *);
 
 // ulib.c
 int stat(char*, struct stat*);
