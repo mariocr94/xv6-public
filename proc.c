@@ -7,6 +7,8 @@
 #include "proc.h"
 #include "spinlock.h"
 
+#define NULL 0
+
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
@@ -117,6 +119,7 @@ found:
 
 //PAGEBREAK: 32
 // Set up first user process.
+
 void
 userinit(void)
 {
@@ -141,7 +144,6 @@ userinit(void)
 
   safestrcpy(p->name, "initcode", sizeof(p->name));
   p->cwd = namei("/");
-
   // this assignment to p->state lets other cores
   // run this process. the acquire forces the above
   // writes to be visible, and the lock is also needed
@@ -549,4 +551,31 @@ int killProc(void){
 }
 
 
+int sys_killsignal(void) {
+  int pid;
+  int signum;
+  struct proc *p;
 
+  if(argint(0, &pid) < 0) return -1;
+  if(argint(1, &signum) < 0) return -1;
+  if(signum > 4 || signum < 1) return -1;
+ 
+  //Try to find the process with the matching pid.
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+         if(p->pid == pid) break;
+ 
+    //If the pid is not found finish     
+    if(p->pid != pid) return -1; 
+ 
+    //Default option finish the process
+    signum -=1; 
+    //if((int)p->signals[signum] == -1) kill(p->pid);
+ 
+  //Else execute the function
+  //Move the stack to the next position
+  p->tf->esp -= 4;
+ 
+  //Point to the function
+ // p->tf->eip = (uint)p->signals[signum];
+  return 1;
+}
