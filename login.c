@@ -65,8 +65,10 @@ int main(int argc, char *argv[]){
 	while(1){
 		printf(1,"login: ");
 		read(0,userName, sizeof(userName));
+		memset(userName,0,sizeof(usernName));
 		userName[strlen(userName) - 1] = ':';
 		printf(1,"password: ");
+		memset(userPassword,0,sizeof(userPassword));
 		read(0,userPassword, sizeof(userPassword));
 		userPassword[strlen(userPassword) - 1] = ':';
 
